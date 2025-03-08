@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinFlow - Modern Financial Management SaaS</title>
+    <meta name="description" content="FinFlow is a comprehensive financial management platform designed for businesses of all sizes. Track transactions, manage accounts, and gain valuable insights.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="landing.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="FinFlow - Modern Financial Management SaaS">
+    <meta property="og:description" content="Streamline your financial management with our comprehensive platform.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=FinFlow">
+    <meta property="og:url" content="https://finflow.com">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
     <header>
@@ -20,6 +27,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -36,16 +44,34 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Streamline Your Financial Management</h1>
-                <p>FinFlow is a comprehensive financial management platform designed for businesses of all sizes. Track transactions, manage accounts, and gain valuable insights with our intuitive dashboard.</p>
+            <div class="hero-content animate-fadeInUp">
+                <span class="badge">Coming Soon</span>
+                <h1>Intelligent Financial Management for Modern Businesses</h1>
+                <p>FinFlow combines powerful analytics, intuitive design, and AI-driven insights to transform how businesses manage their finances. Gain complete visibility and control over your financial operations.</p>
                 <div class="hero-cta">
                     <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
-                    <a href="#demo" class="btn btn-secondary">Watch Demo</a>
+                    <a href="#demo" class="btn btn-outline">Watch Demo <i class="fas fa-play-circle"></i></a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Beta Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">30min</span>
+                        <span class="stat-label">Setup Time</span>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400?text=FinFlow+Dashboard" alt="FinFlow Dashboard Preview">
+            <div class="hero-image animate-fadeInUp">
+                <img src="https://via.placeholder.com/700x500?text=FinFlow+Dashboard" alt="FinFlow Dashboard Preview">
+                <div class="hero-image-badge">
+                    <i class="fas fa-shield-alt"></i> Bank-Level Security
+                </div>
             </div>
         </div>
     </section>
@@ -53,99 +79,155 @@
     <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2>Powerful Features</h2>
-                <p>Everything you need to manage your finances in one place</p>
+                <span class="section-badge">Features</span>
+                <h2>Everything You Need in One Platform</h2>
+                <p>Powerful tools designed to simplify your financial management</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <h3>Transaction Management</h3>
-                    <p>Easily record, categorize, and track all your financial transactions in real-time.</p>
+                    <h3>Smart Transaction Management</h3>
+                    <p>Automatically categorize and track all your financial transactions with AI-powered recognition.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Financial Reporting</h3>
+                    <h3>Advanced Financial Reporting</h3>
                     <p>Generate comprehensive reports and visualize your financial data with customizable dashboards.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-wallet"></i>
                     </div>
-                    <h3>Account Management</h3>
-                    <p>Manage multiple accounts and track balances across different currencies.</p>
+                    <h3>Multi-Account Management</h3>
+                    <p>Manage multiple accounts and track balances across different currencies with real-time exchange rates.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3>Recurring Transactions</h3>
-                    <p>Set up and manage recurring transactions to automate your financial workflows.</p>
+                    <h3>Automated Recurring Transactions</h3>
+                    <p>Set up and manage recurring transactions with smart reminders and automated processing.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-file-export"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Export & Import</h3>
-                    <p>Easily export your data to CSV or PDF, and import transactions from other systems.</p>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Receive personalized financial insights and recommendations based on your spending patterns.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-lock"></i>
                     </div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Your financial data is encrypted and securely stored with enterprise-grade security.</p>
+                    <h3>Enterprise-Grade Security</h3>
+                    <p>Your financial data is protected with end-to-end encryption and multi-factor authentication.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works">
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">Process</span>
                 <h2>How FinFlow Works</h2>
-                <p>Simple, intuitive, and powerful financial management</p>
+                <p>Simple, intuitive, and powerful financial management in four easy steps</p>
             </div>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Sign Up</h3>
-                    <p>Create your account and set up your organization profile.</p>
+                    <h3>Create Your Account</h3>
+                    <p>Sign up in minutes and set up your organization profile with our guided onboarding process.</p>
+                    <img src="https://via.placeholder.com/300x200?text=Account+Setup" alt="Account Setup" class="step-image">
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Connect Accounts</h3>
-                    <p>Link your bank accounts or start adding transactions manually.</p>
+                    <h3>Connect Your Accounts</h3>
+                    <p>Securely link your bank accounts and financial services or start adding transactions manually.</p>
+                    <img src="https://via.placeholder.com/300x200?text=Connect+Accounts" alt="Connect Accounts" class="step-image">
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Track & Manage</h3>
-                    <p>Record transactions, categorize expenses, and monitor your finances.</p>
+                    <h3>Manage Your Finances</h3>
+                    <p>Track transactions, categorize expenses, and monitor your cash flow in real-time.</p>
+                    <img src="https://via.placeholder.com/300x200?text=Manage+Finances" alt="Manage Finances" class="step-image">
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Gain Insights</h3>
-                    <p>Generate reports and visualize your financial data to make informed decisions.</p>
+                    <h3>Unlock Valuable Insights</h3>
+                    <p>Generate reports and visualize your financial data to make informed business decisions.</p>
+                    <img src="https://via.placeholder.com/300x200?text=Financial+Insights" alt="Financial Insights" class="step-image">
                 </div>
             </div>
+            <div class="how-it-works-cta">
+                <a href="#demo" class="btn btn-secondary">Watch Demo Video</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="integration">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Integrations</span>
+                <h2>Seamlessly Connect with Your Favorite Tools</h2>
+                <p>FinFlow integrates with the tools you already use</p>
+            </div>
+            <div class="integration-logos">
+                <div class="integration-logo">
+                    <img src="https://via.placeholder.com/150x60?text=QuickBooks" alt="QuickBooks">
+                </div>
+                <div class="integration-logo">
+                    <img src="https://via.placeholder.com/150x60?text=Xero" alt="Xero">
+                </div>
+                <div class="integration-logo">
+                    <img src="https://via.placeholder.com/150x60?text=Stripe" alt="Stripe">
+                </div>
+                <div class="integration-logo">
+                    <img src="https://via.placeholder.com/150x60?text=PayPal" alt="PayPal">
+                </div>
+                <div class="integration-logo">
+                    <img src="https://via.placeholder.com/150x60?text=Shopify" alt="Shopify">
+                </div>
+                <div class="integration-logo">
+                    <img src="https://via.placeholder.com/150x60?text=Salesforce" alt="Salesforce">
+                </div>
+            </div>
+            <p class="integration-more">And many more...</p>
         </div>
     </section>
 
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">Pricing</span>
                 <h2>Simple, Transparent Pricing</h2>
-                <p>Choose the plan that fits your needs</p>
+                <p>Choose the plan that fits your business needs</p>
+            </div>
+            <div class="pricing-toggle">
+                <span>Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="pricing-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Annual <span class="save-badge">Save 20%</span></span>
             </div>
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Starter</h3>
-                        <div class="price">$19<span>/month</span></div>
+                        <div class="price" data-monthly="$19" data-annual="$15">$19<span>/month</span></div>
                     </div>
+                    <p class="pricing-description">Perfect for small businesses and startups</p>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> Up to 500 transactions</li>
                         <li><i class="fas fa-check"></i> 3 user accounts</li>
@@ -159,8 +241,9 @@
                 <div class="pricing-card featured">
                     <div class="pricing-header">
                         <h3>Professional</h3>
-                        <div class="price">$49<span>/month</span></div>
+                        <div class="price" data-monthly="$49" data-annual="$39">$49<span>/month</span></div>
                     </div>
+                    <p class="pricing-description">Ideal for growing businesses</p>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> Unlimited transactions</li>
                         <li><i class="fas fa-check"></i> 10 user accounts</li>
@@ -174,8 +257,9 @@
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Enterprise</h3>
-                        <div class="price">$99<span>/month</span></div>
+                        <div class="price" data-monthly="$99" data-annual="$79">$99<span>/month</span></div>
                     </div>
+                    <p class="pricing-description">For large organizations with complex needs</p>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> Unlimited everything</li>
                         <li><i class="fas fa-check"></i> Unlimited users</li>
@@ -187,49 +271,75 @@
                     <a href="#waitlist" class="btn btn-outline">Join Waitlist</a>
                 </div>
             </div>
+            <div class="pricing-guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <p>All plans include a <strong>14-day free trial</strong> and <strong>100% money-back guarantee</strong></p>
+            </div>
         </div>
     </section>
 
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">Testimonials</span>
                 <h2>What Our Users Say</h2>
                 <p>Trusted by businesses worldwide</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"FinFlow has completely transformed how we manage our finances. The intuitive interface and powerful reporting features have saved us countless hours."</p>
+                        <p>"FinFlow has completely transformed how we manage our finances. The intuitive interface and powerful reporting features have saved us countless hours each month. The AI insights have helped us identify cost-saving opportunities we never would have found otherwise."</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
                         <div>
                             <h4>Sarah Johnson</h4>
                             <p>CFO, TechStart Inc.</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"As a small business owner, keeping track of finances was always a challenge. FinFlow made it simple and efficient. I can't imagine going back to our old system."</p>
+                        <p>"As a small business owner, keeping track of finances was always a challenge. FinFlow made it simple and efficient. The automated categorization and recurring transaction features save me hours every week. I can't imagine going back to our old system."</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
                         <div>
                             <h4>Michael Chen</h4>
                             <p>Owner, Chen's Consulting</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"The recurring transaction feature alone has saved us so much time. FinFlow is a game-changer for financial management."</p>
+                        <p>"The multi-currency support and integration capabilities of FinFlow have been game-changers for our international business. We can now track all our finances in one place, regardless of currency or payment processor. The customer support team is also incredibly responsive."</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Rodriguez">
                         <div>
                             <h4>Lisa Rodriguez</h4>
-                            <p>Accountant, Global Solutions</p>
+                            <p>Finance Director, Global Solutions</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -242,37 +352,71 @@
         </div>
     </section>
 
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Demo</span>
+                <h2>See FinFlow in Action</h2>
+                <p>Watch how FinFlow can transform your financial management</p>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <img src="https://via.placeholder.com/1200x675?text=FinFlow+Demo+Video" alt="FinFlow Demo Video">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="waitlist" class="waitlist">
         <div class="container">
             <div class="waitlist-content">
+                <span class="section-badge">Early Access</span>
                 <h2>Be the First to Experience FinFlow</h2>
-                <p>Join our waitlist to get early access and exclusive offers when we launch.</p>
+                <p>Join our waitlist to get early access and exclusive offers when we launch. Early adopters will receive a 30% discount for the first year.</p>
                 <form id="waitlist-form" class="waitlist-form">
                     <div class="form-group">
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
+                        <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
+                        <label for="company-size">Company Size</label>
                         <select id="company-size" name="company-size" required>
-                            <option value="" disabled selected>Company Size</option>
+                            <option value="" disabled selected>Select company size</option>
                             <option value="1-10">1-10 employees</option>
                             <option value="11-50">11-50 employees</option>
                             <option value="51-200">51-200 employees</option>
                             <option value="201+">201+ employees</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Join Waitlist</button>
+                    <div class="form-group">
+                        <label for="interest">What interests you most about FinFlow?</label>
+                        <textarea id="interest" name="interest" placeholder="Tell us what you're looking for..."></textarea>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        <label for="newsletter">Subscribe to our newsletter for updates</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Join Waitlist <i class="fas fa-arrow-right"></i></button>
                 </form>
                 <div id="waitlist-success" class="waitlist-success">
                     <i class="fas fa-check-circle"></i>
                     <h3>Thank You!</h3>
                     <p>You've been added to our waitlist. We'll notify you when FinFlow launches.</p>
+                    <a href="#" class="btn btn-outline">Back to Home</a>
                 </div>
             </div>
             <div class="waitlist-image">
-                <img src="https://via.placeholder.com/500x600?text=FinFlow+App" alt="FinFlow App Preview">
+                <img src="https://via.placeholder.com/600x700?text=FinFlow+App" alt="FinFlow App Preview">
+                <div class="waitlist-badge">
+                    <span>Coming Q3 2023</span>
+                </div>
             </div>
         </div>
     </section>
@@ -280,6 +424,7 @@
     <section id="faq" class="faq">
         <div class="container">
             <div class="section-header">
+                <span class="section-badge">FAQ</span>
                 <h2>Frequently Asked Questions</h2>
                 <p>Find answers to common questions about FinFlow</p>
             </div>
@@ -290,7 +435,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We're currently in the final stages of development and plan to launch in Q3 2023. Join our waitlist to be notified when we go live.</p>
+                        <p>We're currently in the final stages of development and plan to launch in Q3 2023. Join our waitlist to be notified when we go live and get exclusive early access offers.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -299,7 +444,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, FinFlow supports importing data from CSV files and direct integration with popular accounting software and banking systems.</p>
+                        <p>Yes, FinFlow supports importing data from CSV files and direct integration with popular accounting software like QuickBooks, Xero, and banking systems. Our import wizard makes the transition smooth and painless.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -308,7 +453,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. We use bank-level encryption and security measures to ensure your data is always protected. We're also compliant with industry standards for financial data security.</p>
+                        <p>Absolutely. We use bank-level encryption (256-bit AES) and security measures to ensure your data is always protected. We're also compliant with industry standards for financial data security including SOC 2, GDPR, and CCPA.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -317,7 +462,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, all plans come with a 14-day free trial so you can explore FinFlow's features before committing.</p>
+                        <p>Yes, all plans come with a 14-day free trial so you can explore FinFlow's features before committing. No credit card is required to start your trial, and you can upgrade or cancel at any time.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -326,9 +471,32 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, you can change your plan at any time. Your billing will be prorated accordingly.</p>
+                        <p>Yes, you can change your plan at any time. Your billing will be prorated accordingly, so you'll only pay for what you use. There are no penalties for changing plans.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What kind of support do you offer?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer different levels of support based on your plan. All customers receive email support, while Professional and Enterprise plans include priority support with faster response times. Enterprise customers also get a dedicated account manager.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-cta">
+                <p>Still have questions?</p>
+                <a href="#" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Financial Management?</h2>
+                <p>Join thousands of businesses already on the waitlist for FinFlow.</p>
+                <a href="#waitlist" class="btn btn-primary btn-large">Join Waitlist Now</a>
             </div>
         </div>
     </section>
@@ -339,12 +507,19 @@
                 <div class="footer-logo">
                     <img src="finflow-logo.svg" alt="FinFlow Logo" height="40">
                     <p>Modern financial management for modern businesses</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
                         <h3>Product</h3>
                         <ul>
                             <li><a href="#features">Features</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
                             <li><a href="#pricing">Pricing</a></li>
                             <li><a href="#testimonials">Testimonials</a></li>
                             <li><a href="#faq">FAQ</a></li>
@@ -356,7 +531,18 @@
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Careers</a></li>
                             <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
                             <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">API Documentation</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Webinars</a></li>
+                            <li><a href="#">Partners</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -365,17 +551,16 @@
                             <li><a href="#">Terms of Service</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Security</a></li>
+                            <li><a href="#">Compliance</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 FinFlow. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="footer-badges">
+                    <span><i class="fas fa-lock"></i> SOC 2 Compliant</span>
+                    <span><i class="fas fa-shield-alt"></i> GDPR Ready</span>
                 </div>
             </div>
         </div>
