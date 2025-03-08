@@ -286,6 +286,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .hero-image img {
@@ -410,10 +411,10 @@ nav {
 }
 
 .steps {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .step {
@@ -584,6 +585,7 @@ nav {
 }
 
 .pricing-features {
+    flex-grow: 1;
     margin-bottom: 30px;
 }
 
@@ -640,14 +642,23 @@ nav {
 }
 
 .testimonial {
-    background-color: var(--background-color);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin: 0 auto;
-    max-width: 800px;
-    position: relative;
-    border: 1px solid rgba(230, 230, 230, 0.5);
+    display: none;
+}
+
+.testimonial.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .testimonial-content {
@@ -663,11 +674,25 @@ nav {
     color: var(--text-light);
 }
 
-.testimonial-content p::before,
-.testimonial-content p::after {
+.testimonial-content p::before {
+    content: '\f10d';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
+    top: -10px;
+    left: 0;
+    font-size: 24px;
+    color: var(--primary-color);
+    opacity: 0.3;
+}
+
+.testimonial-content p::after {
+    content: '\f10e';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    bottom: -10px;
+    right: 0;
     font-size: 24px;
     color: var(--primary-color);
     opacity: 0.3;
@@ -704,6 +729,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-top: 30px;
 }
 
 .dot {
@@ -717,6 +743,7 @@ nav {
 
 .dot.active {
     background-color: var(--primary-color);
+    transform: scale(1.2);
 }
 
 /* Waitlist Section */
@@ -796,13 +823,13 @@ nav {
 }
 
 .waitlist-success {
-    display: none;
     text-align: center;
     padding: 40px;
     background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     max-width: 500px;
+    display: none;
 }
 
 .waitlist-success i {
@@ -892,7 +919,7 @@ nav {
 
 .faq-question i {
     font-size: 16px;
-    transition: var(--transition);
+    transition: transform 0.3s ease;
 }
 
 .faq-item.active .faq-question i {
@@ -900,15 +927,15 @@ nav {
 }
 
 .faq-answer {
-    padding: 0 20px;
     max-height: 0;
     overflow: hidden;
-    transition: var(--transition);
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 30px;
 }
 
 .faq-item.active .faq-answer {
-    padding: 20px;
-    max-height: 1000px;
+    max-height: 500px;
+    padding: 20px 30px 30px;
 }
 
 /* Footer */
@@ -939,14 +966,12 @@ footer .container {
 .footer-content {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
+    gap: 60px;
     margin-bottom: 60px;
 }
 
 .footer-logo {
-    flex: 1;
-    min-width: 250px;
+    flex: 0 0 300px;
 }
 
 .footer-logo h2 {
@@ -964,10 +989,32 @@ footer .container {
     max-width: 300px;
 }
 
+.footer-logo .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-logo .social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.footer-logo .social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 60px;
+    gap: 30px;
 }
 
 .footer-column h3 {
@@ -1252,21 +1299,29 @@ footer .container {
 
 /* Feature Link */
 .feature-link {
+    position: relative;
     display: inline-flex;
     align-items: center;
     margin-top: 16px;
     font-weight: 500;
     color: var(--primary-color);
     gap: 8px;
+    padding-bottom: 2px;
 }
 
-.feature-link i {
-    font-size: 14px;
-    transition: transform 0.3s ease;
+.feature-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
 }
 
-.feature-link:hover i {
-    transform: translateX(5px);
+.feature-link:hover::after {
+    width: 100%;
 }
 
 /* Step Image */
@@ -1281,7 +1336,6 @@ footer .container {
 .step:hover .step-image {
     transform: scale(1.05);
 }
-
 /* How It Works CTA */
 .how-it-works-cta {
     text-align: center;
@@ -1565,15 +1619,11 @@ input:checked + .slider:before {
 
 .form-checkbox {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    align-items: flex-start;
 }
 
 .form-checkbox input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--primary-color);
+    margin-top: 3px;
 }
 
 .form-checkbox label {
@@ -1585,12 +1635,7 @@ input:checked + .slider:before {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: var(--secondary-color);
-    color: white;
-    padding: 8px 16px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 /* FAQ CTA */
@@ -1651,6 +1696,7 @@ input:checked + .slider:before {
 .btn-large {
     padding: 16px 32px;
     font-size: 18px;
+    min-width: 200px;
 }
 
 /* Footer Badges */
@@ -1715,4 +1761,286 @@ input:checked + .slider:before {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+/* Fix for form group focus states */
+.form-group.focused input,
+.form-group.focused select,
+.form-group.focused textarea {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Fix for pricing toggle alignment */
+.pricing-toggle {
+    align-items: center;
+}
+
+/* Fix for mobile menu */
+@media (max-width: 768px) {
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        animation: slideDown 0.3s ease forwards;
+    }
+    
+    .cta-buttons.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(80px + 200px);
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        align-items: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .footer-column {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+/* Fix for footer layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-logo {
+    flex: 0 0 300px;
+}
+
+/* Fix for FAQ accordion */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 30px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 20px 30px 30px;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* Fix for waitlist form success message */
+.waitlist-success {
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 500px;
+    display: none;
+}
+
+/* Fix for integration logos on mobile */
+@media (max-width: 992px) {
+    .integration-logos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .integration-logo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .integration-logos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .integration-logos {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .footer-column {
+        flex: 0 0 100%;
+    }
+    
+    .footer-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* Fix for feature link hover state */
+.feature-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 16px;
+    font-weight: 500;
+    color: var(--primary-color);
+    gap: 8px;
+    padding-bottom: 2px;
+}
+
+.feature-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.feature-link:hover::after {
+    width: 100%;
+}
+
+/* Fix for button hover states */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix for section spacing */
+section {
+    padding: 100px 0;
+}
+
+section:first-of-type {
+    padding-top: 120px;
+}
+
+/* Fix for mobile padding */
+@media (max-width: 768px) {
+    section {
+        padding: 70px 0;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+}
+
+/* Fix for testimonial dots */
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Fix for pricing card heights */
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-features {
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
+
+/* Fix for form checkbox alignment */
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+}
+
+/* Fix for hero stats on mobile */
+@media (max-width: 768px) {
+    .hero-stats {
+        margin-top: 30px;
+    }
+}
+
+/* Fix for waitlist badge positioning */
+.waitlist-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+/* Fix for CTA button size */
+.btn-large {
+    padding: 16px 32px;
+    font-size: 18px;
+    min-width: 200px;
+}
+
+/* Fix for social links in footer */
+.footer-logo .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-logo .social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.footer-logo .social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
 } 

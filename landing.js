@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Testimonial Slider
+    // Testimonial Slider - Fix display issue
     const testimonials = document.querySelectorAll('.testimonial');
     const dots = document.querySelectorAll('.dot');
     let currentTestimonial = 0;
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function showTestimonial(index) {
         // Hide all testimonials
         testimonials.forEach(testimonial => {
-            testimonial.style.display = 'none';
             testimonial.classList.remove('active');
         });
         
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Show the selected testimonial
         if (testimonials[index]) {
-            testimonials[index].style.display = 'block';
             // Add a small delay before adding the active class for animation
             setTimeout(() => {
                 testimonials[index].classList.add('active');
@@ -88,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // FAQ Accordion
+    // FAQ Accordion - Fix toggle behavior
     const faqItems = document.querySelectorAll('.faq-item');
     
     faqItems.forEach(item => {
@@ -107,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Pricing Toggle (Monthly/Annual)
+    // Pricing Toggle (Monthly/Annual) - Fix toggle behavior
     const pricingToggle = document.getElementById('pricing-toggle');
     const prices = document.querySelectorAll('.price');
     
@@ -128,12 +126,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Video Demo Play Button
+    // Video Demo Play Button - Fix click behavior
     const videoPlaceholder = document.querySelector('.video-placeholder');
     const playButton = document.querySelector('.play-button');
     
     if (videoPlaceholder && playButton) {
-        playButton.addEventListener('click', function() {
+        videoPlaceholder.addEventListener('click', function() {
             // In a real implementation, you would replace the placeholder with an actual video
             // For this example, we'll just show an alert
             alert('Video player would start here in the actual implementation.');
@@ -151,13 +149,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Waitlist Form Submission
+    // Waitlist Form Submission - Fix form validation and submission
     const waitlistForm = document.getElementById('waitlist-form');
     const waitlistSuccess = document.getElementById('waitlist-success');
     
     if (waitlistForm) {
+        // Add form validation
+        const formInputs = waitlistForm.querySelectorAll('input, select, textarea');
+        
+        formInputs.forEach(input => {
+            // Add validation styling
+            input.addEventListener('invalid', function() {
+                this.parentElement.classList.add('error');
+            });
+            
+            input.addEventListener('input', function() {
+                this.parentElement.classList.remove('error');
+            });
+        });
+        
         waitlistForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Basic form validation
+            let isValid = true;
+            formInputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    input.parentElement.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) return;
             
             // Get form data
             const formData = {
@@ -208,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links - Fix scroll behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -237,48 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add CSS for mobile menu when JavaScript is enabled
-    const style = document.createElement('style');
-    style.textContent = `
-        @media (max-width: 768px) {
-            .nav-links.active, .cta-buttons.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--background-color);
-                padding: 20px;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-                animation: slideDown 0.3s ease forwards;
-            }
-            
-            @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            .nav-links.active {
-                gap: 20px;
-            }
-            
-            .cta-buttons.active {
-                top: calc(80px + 200px);
-                align-items: center;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Add animation on scroll
+    // Add animation on scroll - Fix animation trigger
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.feature-card, .pricing-card, .step, .testimonial, .section-header, .integration-logo, .faq-item, .waitlist-form, .waitlist-image');
         
@@ -295,22 +277,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add CSS for scroll animations
     const animationStyle = document.createElement('style');
     animationStyle.textContent = `
-        .feature-card, .pricing-card, .step, .testimonial, .section-header, .integration-logo, .faq-item, .waitlist-form, .waitlist-image {
+        .feature-card, .pricing-card, .step, .section-header, .integration-logo, .faq-item, .waitlist-form, .waitlist-image {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .feature-card.animate, .pricing-card.animate, .step.animate, .testimonial.animate, .section-header.animate, .integration-logo.animate, .faq-item.animate, .waitlist-form.animate, .waitlist-image.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .testimonial {
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .testimonial.active {
+        .feature-card.animate, .pricing-card.animate, .step.animate, .section-header.animate, .integration-logo.animate, .faq-item.animate, .waitlist-form.animate, .waitlist-image.animate {
             opacity: 1;
             transform: translateY(0);
         }
@@ -335,6 +308,21 @@ document.addEventListener('DOMContentLoaded', function() {
         .integration-logo:nth-child(4) { transition-delay: 0.4s; }
         .integration-logo:nth-child(5) { transition-delay: 0.5s; }
         .integration-logo:nth-child(6) { transition-delay: 0.6s; }
+        
+        /* Form error state */
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: var(--error-color);
+        }
+        
+        .form-group.error::after {
+            content: 'This field is required';
+            color: var(--error-color);
+            font-size: 12px;
+            margin-top: 5px;
+            display: block;
+        }
     `;
     document.head.appendChild(animationStyle);
     
@@ -365,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Floating labels for form inputs
+    // Floating labels for form inputs - Fix focus behavior
     const formInputs = document.querySelectorAll('.form-group input, .form-group textarea, .form-group select');
     
     formInputs.forEach(input => {
@@ -414,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                button.style.display = 'block';
+                button.style.display = 'flex';
             } else {
                 button.style.display = 'none';
             }
@@ -430,44 +418,38 @@ document.addEventListener('DOMContentLoaded', function() {
     
     createBackToTopButton();
     
-    // Add CSS for back to top button
-    const backToTopStyle = document.createElement('style');
-    backToTopStyle.textContent = `
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 99;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            transition: all 0.3s ease;
-            opacity: 0.8;
+    // Fix for feature links
+    const featureLinks = document.querySelectorAll('.feature-link');
+    featureLinks.forEach(link => {
+        const icon = link.querySelector('i');
+        if (icon) {
+            link.addEventListener('mouseenter', () => {
+                icon.style.transform = 'translateX(5px)';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                icon.style.transform = 'translateX(0)';
+            });
         }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 16px;
+    });
+    
+    // Fix for testimonial background
+    const addTestimonialStyles = () => {
+        const style = document.createElement('style');
+        style.textContent = `
+            .testimonial.active {
+                background-color: var(--background-color);
+                padding: 40px;
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                margin: 0 auto;
+                max-width: 800px;
+                position: relative;
+                border: 1px solid rgba(230, 230, 230, 0.5);
             }
-        }
-    `;
-    document.head.appendChild(backToTopStyle);
+        `;
+        document.head.appendChild(style);
+    };
+    
+    addTestimonialStyles();
 }); 
